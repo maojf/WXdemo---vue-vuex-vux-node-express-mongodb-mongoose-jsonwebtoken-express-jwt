@@ -5,15 +5,15 @@ const iconv = require("iconv-lite");
 
 const app = exp();
 app.use(cookieParser())
-// app.use(exp.static('dist'));
+app.use(exp.static('dist'));
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // cors解决跨域和设置cookie问题
-const cors = require('cors') // 此处我的项目中使用express框架，跨域使用了cors npm插件
-app.use(cors({
-    credentials: true, 
-    origin: 'http://localhost:8080', // web前端服务器地址
-}));
+// const cors = require('cors') // 此处我的项目中使用express框架，跨域使用了cors npm插件
+// app.use(cors({
+//     credentials: true, 
+//     origin: 'http://localhost:8080', // web前端服务器地址
+// }));
 
 
 //express解决跨域和设置cookie问题
