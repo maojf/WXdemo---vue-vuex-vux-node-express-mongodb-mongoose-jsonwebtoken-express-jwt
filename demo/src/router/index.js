@@ -10,6 +10,11 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
+    },
+    {
+      path: '/class',
+      name: 'Class',
+      component: (resolve) => require(['@/components/page/Class'], resolve)
     }
   ]
 })

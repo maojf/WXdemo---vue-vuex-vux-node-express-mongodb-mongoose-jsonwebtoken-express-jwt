@@ -11,11 +11,26 @@
 </template>
 
 <script>
-import { XHeader } from 'vux'
+import { XHeader,
+         Swiper,
+         
+} from 'vux'
+import { 
+    PGroup,
+    PGrid
+}from '@/components/Template/custom/index.js'
+
 export default {
     name:'Template',
     components:{
-        XHeader
+        XHeader,
+        Swiper,
+        
+
+
+
+        PGroup,
+        PGrid
     },
     props:{
         pageConfig:{
