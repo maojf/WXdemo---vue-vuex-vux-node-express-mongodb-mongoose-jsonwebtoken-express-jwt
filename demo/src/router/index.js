@@ -14,7 +14,7 @@ export default new Router({
     {
       path: '/class',
       name: 'Class',
-      component: (resolve) => require(['@/components/page/Class'], resolve)
+      component: (resolve) => require(['@/components/page/Class/Class'], resolve)
     }
   ]
 })

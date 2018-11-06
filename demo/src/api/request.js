@@ -21,7 +21,7 @@ service.interceptors.request.use(config => {
   config.method == 'post'
     ? config.data = qs.stringify({ ...config.data })
     : config.params = { ...config.params }
-  if (config.method == 'get') {
+  if (config.method == 'get') {//允许get请求设置请求头
     config.data = true
   }
   return config
