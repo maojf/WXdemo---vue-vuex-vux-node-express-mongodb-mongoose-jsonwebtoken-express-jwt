@@ -26,7 +26,7 @@ export default {
         {
           name: "x-header",
           options: {
-            title: "武英极",
+            title: "武英级",
             "left-options": {
               showBack: false
             }
