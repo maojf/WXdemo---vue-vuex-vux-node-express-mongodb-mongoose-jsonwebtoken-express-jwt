@@ -8,7 +8,7 @@
     运行项目  
         `npm install`  
         `npm run dev`
-### ./service 后端项目 (node/express)  
+### ./service 后端项目 (node/express/mongodb/mongoose)  
     运行项目  
         `npm install`
         `node index.js`  
