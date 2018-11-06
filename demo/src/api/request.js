@@ -1,44 +1,41 @@
 import axios from 'axios'
 import qs from 'qs'
-if(process.env.NODE_ENV == 'development'){
-  global.servicePath = "http://localhost:3000/"
-}else if(process.env.NODE_ENV == 'production'){
-  global.servicePath = 'http://localhost:80/'
-}
+import servicePath from './config'
+
 
 axios.defaults.headers = {
   "Content-Type": "application/x-www-form-urlencoded"
-  }
+}
 
 const service = axios.create({
-    // baseURL: "https://api.weixin.qq.com/",
-    baseURL: servicePath,
-    timeout: 5000,
-    headers:{
-      "Content-Type":"application/x-www-form-urlencoded"
-    },
-    withCredentials: true // 允许携带cookie
+  // baseURL: "https://api.weixin.qq.com/",
+  baseURL: servicePath,
+  timeout: 5000,
+  headers: {
+    "Content-Type": "application/x-www-form-urlencoded"
+  },
+  withCredentials: true // 允许携带cookie
 })
 
-service.interceptors.request.use(config=>{
+service.interceptors.request.use(config => {
   config.method == 'post'
-    ? config.data = qs.stringify({...config.data})
-    : config.params = {...config.params}
+    ? config.data = qs.stringify({ ...config.data })
+    : config.params = { ...config.params }
   if (config.method == 'get') {
     config.data = true
   }
   return config
-},error=>{
+}, error => {
   Promise.reject(error)
 })
-service.interceptors.response.use(response=>{
+service.interceptors.response.use(response => {
   // console.log(response)
-  if(response.status == 200){
+  if (response.status == 200) {
     return response.data
   } else {
     return '出错'
   }
-},error=>{
+}, error => {
   console.log('error');
   console.log(error);
   console.log(JSON.stringify(error));
