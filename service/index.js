@@ -2,11 +2,14 @@ const exp = require('express');
 const cookieParser = require('cookie-parser');
 const https = require('https');
 const iconv = require("iconv-lite");
+const bodyParser = require('body-parser');
 
 
 const app = exp();
 app.use(cookieParser())
 app.use(exp.static('dist'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +40,7 @@ app.use(cors({
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 app.use('/user',require('./routes/user'));
-
+app.use('/wx',require('./routes/WXAPI'));
 
 
 
