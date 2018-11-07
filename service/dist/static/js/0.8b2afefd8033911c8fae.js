@@ -1,0 +1,2 @@
+webpackJsonp([0],{AKCl:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a=n("SUmG"),i=(a.a,{name:"Class",components:{Template:a.a},data:function(){return{pageConfig:[{name:"x-header",options:{title:"课程表"}}]}}}),o={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("Template",this._b({},"Template",{pageConfig:this.pageConfig},!1))],1)},staticRenderFns:[]};var r=n("VU/8")(i,o,!1,function(e){n("M+YJ")},null,null);t.default=r.exports},"M+YJ":function(e,t){}});
+//# sourceMappingURL=0.8b2afefd8033911c8fae.js.map
