@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const https = require('https');
 const iconv = require("iconv-lite");
 const bodyParser = require('body-parser');
+require('body-parser-xml')(bodyParser);
 
 
 const app = exp();
@@ -10,7 +11,14 @@ app.use(cookieParser())
 app.use(exp.static('dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(bodyParser.xml({
+    limit: '1MB',
+    xmlParseOptions: {
+        normalize: true,
+        normalizeTags: true,
+        explicitArray: false
+    }
+}));
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // cors解决跨域和设置cookie问题
