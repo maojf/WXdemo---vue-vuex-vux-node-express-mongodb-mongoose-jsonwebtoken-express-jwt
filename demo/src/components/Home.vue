@@ -26,7 +26,7 @@ export default {
         {
           name: "x-header",
           options: {
-            title: "武英极",
+            title: "武英级",
             "left-options": {
               showBack: false
             }
@@ -69,7 +69,7 @@ export default {
             list: [
               {
                 img: require("@/assets/img/home/icon1.jpg"),
-                link: "/Class",
+                link: "/class",
                 label: "课程表"
               },
               {
@@ -86,6 +86,24 @@ export default {
                 img: require("@/assets/img/home/icon4.jpg"),
                 link: "http://www.baidu.com",
                 label: "课程表"
+              }
+            ]
+          }
+        },
+
+        {
+          name:'PBottomTab',
+          options:{
+            list:[
+              {
+                text:'首页',
+                img:require('@/assets/img/home/bottomTab1.png'),
+                link:'/'
+              },
+              {
+                text:'个人中心',
+                img:require('@/assets/img/home/bottomTab1.png'),
+                link:'/user'
               }
             ]
           }

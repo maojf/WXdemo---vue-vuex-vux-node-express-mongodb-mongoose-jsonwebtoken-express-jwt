@@ -17,7 +17,8 @@ import { XHeader,
 } from 'vux'
 import { 
     PGroup,
-    PGrid
+    PGrid,
+    PBottomTab
 }from '@/components/Template/custom/index.js'
 
 export default {
@@ -30,7 +31,8 @@ export default {
 
 
         PGroup,
-        PGrid
+        PGrid,
+        PBottomTab
     },
     props:{
         pageConfig:{

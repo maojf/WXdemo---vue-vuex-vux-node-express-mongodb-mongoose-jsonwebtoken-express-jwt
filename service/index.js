@@ -2,18 +2,23 @@ const exp = require('express');
 const cookieParser = require('cookie-parser');
 const https = require('https');
 const iconv = require("iconv-lite");
+const bodyParser = require('body-parser');
+
 
 const app = exp();
 app.use(cookieParser())
 app.use(exp.static('dist'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // cors解决跨域和设置cookie问题
-// const cors = require('cors') // 此处我的项目中使用express框架，跨域使用了cors npm插件
-// app.use(cors({
-//     credentials: true, 
-//     origin: 'http://localhost:8080', // web前端服务器地址
-// }));
+const cors = require('cors') // 此处我的项目中使用express框架，跨域使用了cors npm插件
+app.use(cors({
+    credentials: true, 
+    origin: 'http://localhost:8080', // web前端服务器地址
+}));
 
 
 //express解决跨域和设置cookie问题
@@ -33,6 +38,12 @@ app.use(exp.static('dist'));
 //     }
 // })
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+app.use('/user',require('./routes/user'));
+app.use('/wx',require('./routes/WXAPI'));
+
+
+
 
 // app.post('/a',(req,res)=>{
 //     console.log(req.cookies)
@@ -60,11 +71,6 @@ app.use(exp.static('dist'));
 //     });  
 // })
 
-
-app.post('/getUserInfo',(req,res)=>{
-    console.log(111)
-    res.json({code:1})
-})
 
 
 app.listen(3000)
