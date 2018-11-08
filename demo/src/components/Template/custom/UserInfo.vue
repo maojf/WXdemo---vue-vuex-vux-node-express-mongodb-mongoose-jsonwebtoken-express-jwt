@@ -1,7 +1,7 @@
 <template>
     <div class="user_info">
         <img :src="img" class="user_avatar">
-        <p class="user_name">{{text}}</p>
+        <p class="user_name" @click="gotoLogin">{{this.$store.state.isLogin?text:'登陆'}}</p>
     </div>
 </template>
 
@@ -17,6 +17,17 @@ export default {
             type:String,
             default:''
         }
+    },
+    methods:{
+        gotoLogin(){
+            if(this.$store.state.isLogin){
+                return;
+            }else{
+                this.$router.push('/user/login');
+            }
+        },
+    },
+    mounted(){
     }
 }
 </script>

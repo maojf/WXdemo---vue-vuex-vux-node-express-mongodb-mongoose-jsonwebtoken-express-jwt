@@ -26,7 +26,7 @@ router.post('/setUser', (req, res) => {
     })    
 })
 
-router.post('/login', (req, res) => {
+router.post('/getUserInfor', (req, res) => {
     Stus.findOne({
         name: req.body.name
     }, (err, data) => {
@@ -39,7 +39,10 @@ router.post('/login', (req, res) => {
             },secret,{
                 expiresIn:60
             })
-            res.send({code:1,msg:'登陆成功',token})
+            res.send({code:1,msg:'登陆成功',token,userInfo:{
+                name:data.name,
+                admin:data.admin
+            }})
         }else{
             res.send({code:0,msg:"用户名或密码错误"})
         }
