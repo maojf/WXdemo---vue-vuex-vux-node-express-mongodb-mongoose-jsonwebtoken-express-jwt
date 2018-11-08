@@ -4,6 +4,7 @@
             <component 
                 :is="item.name"
                 v-bind="item.options"
+                @click.native="item.events?item.events.list.click():''"
                 >
             </component>
         </div>
@@ -11,14 +12,16 @@
 </template>
 
 <script>
-import { XHeader,
-         Swiper,
-         
+import {
+    XHeader,
+    Swiper,
 } from 'vux'
 import { 
     PGroup,
     PGrid,
-    PBottomTab
+    PBottomTab,
+    UserInfo,
+    PCell
 }from '@/components/Template/custom/index.js'
 
 export default {
@@ -32,13 +35,18 @@ export default {
 
         PGroup,
         PGrid,
-        PBottomTab
+        PBottomTab,
+        UserInfo,
+        PCell
     },
     props:{
         pageConfig:{
             type:Array,
             default:[]
         }
+    },
+    mounted(){
+        this.init(this.$parent)
     }
 }
 </script>

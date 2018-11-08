@@ -8,6 +8,7 @@
 import { Group, GroupTitle } from 'vux'
 
 export default {
+    name: "PGroup",
     components:{
         Group, 
         GroupTitle
