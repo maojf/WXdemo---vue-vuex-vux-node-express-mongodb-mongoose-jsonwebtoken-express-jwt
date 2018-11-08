@@ -3,10 +3,15 @@ const cookieParser = require('cookie-parser');
 const https = require('https');
 const iconv = require("iconv-lite");
 const bodyParser = require('body-parser');
+const expressJwt = require('express-jwt');
+const secret = require('./config/jwt_config');
 require('body-parser-xml')(bodyParser);
 
 
 const app = exp();
+
+
+
 app.use(cookieParser())
 app.use(exp.static('dist'));
 app.use(bodyParser.json());
@@ -19,6 +24,9 @@ app.use(bodyParser.xml({
         explicitArray: false
     }
 }));
+
+
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // cors解决跨域和设置cookie问题
@@ -47,6 +55,22 @@ app.use(cors({
 // })
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//使用中间件验证token合法性
+app.use(expressJwt ({
+    secret: secret 
+}).unless({
+    path: ['/user/login', '/getUserInfo']  //除了这些地址，其他的URL都需要验证
+}));
+//拦截器
+app.use((err, req, res, next) => {
+    // console.log(err)
+    console.log(req.headers.authorization)
+    //当token验证失败时会抛出如下错误
+    if (err.name === 'UnauthorizedError') {   
+        //这个需要根据自己的业务逻辑来处理（ 具体的err值 请看下面）
+        res.status(401).send('invalid token...');
+    }
+});
 app.use('/user',require('./routes/user'));
 app.use('/wx',require('./routes/WXAPI'));
 
