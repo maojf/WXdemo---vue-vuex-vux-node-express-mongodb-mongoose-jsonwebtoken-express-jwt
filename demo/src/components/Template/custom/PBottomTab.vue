@@ -10,6 +10,7 @@
 <script>
 import { Tabbar, TabbarItem } from 'vux'
 export default {
+    name: "PBottomTab",
     components:{
         Tabbar, 
         TabbarItem
@@ -23,6 +24,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.weui-tabbar{
+    position: fixed;
+}
 </style>

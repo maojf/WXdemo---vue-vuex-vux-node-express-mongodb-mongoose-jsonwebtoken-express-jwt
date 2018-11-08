@@ -112,9 +112,6 @@ export default {
     };
   },
   methods: {
-    asdasd() {
-      console.log(111111);
-    },
     asd() {
       // service.get('cgi-bin/token?grant_type=client_credential&appid=wx113a5f880a367deb&secret=578951c1581c9c0647564e69c55835a7')
       getUserInfo().then(res => {
@@ -122,7 +119,9 @@ export default {
       });
     }
   },
-  mounted() {}
+  mounted() {
+
+  }
 };
 </script>
 
