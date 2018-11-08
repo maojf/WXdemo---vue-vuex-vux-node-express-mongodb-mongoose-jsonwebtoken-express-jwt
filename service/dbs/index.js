@@ -12,7 +12,8 @@ db.on('error', (error) => {
 
 const stusSchema = mongoose.Schema({
     name:String,
-    phone:String
+    password:String,
+    admin:String
 })
 const Stus = mongoose.model('stus',stusSchema);
 
