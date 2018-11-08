@@ -8,9 +8,9 @@ export const setUser = (data) => {
     })
 }
 
-export const logIn = (data) => {
+export const getUserInfor = (data) => {
     return service({
-        url:'/user/login',
+        url:'/user/getUserInfor',
         method:'post',
         data
     })

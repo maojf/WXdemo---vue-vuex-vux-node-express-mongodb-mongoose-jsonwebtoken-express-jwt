@@ -40,6 +40,10 @@ service.interceptors.response.use(response => {
   console.log('error');
   console.log(error.response);
   // console.log(JSON.stringify(error));
+  if(error.response.status == 401){
+    sessionStorage.setItem('isLogin',false)
+    location.href = '/';
+  }
   return Promise.reject(error)
 })
 

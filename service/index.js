@@ -59,7 +59,7 @@ app.use(cors({
 app.use(expressJwt ({
     secret: secret 
 }).unless({
-    path: ['/user/login', '/getUserInfo']  //除了这些地址，其他的URL都需要验证
+    path: ['/user/getUserInfor', '/getUserInfo']  //除了这些地址，其他的URL都需要验证
 }));
 //拦截器
 app.use((err, req, res, next) => {
