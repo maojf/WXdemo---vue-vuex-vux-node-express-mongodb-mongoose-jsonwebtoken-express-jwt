@@ -15,6 +15,16 @@ export default new Router({
       path: '/class',
       name: 'Class',
       component: (resolve) => require(['@/components/page/Class/Class'], resolve)
+    },
+    {
+      path: '/user',
+      name: 'User',
+      component: (resolve) => require(['@/components/page/User/User'], resolve)
+    },
+    {
+      path: '/user/login',
+      name: 'Login',
+      component: (resolve) => require(['@/components/page/User/Login'], resolve)
     }
   ]
 })

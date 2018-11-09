@@ -2,7 +2,6 @@ import axios from 'axios'
 import qs from 'qs'
 import servicePath from './config'
 
-
 axios.defaults.headers = {
   "Content-Type": "application/x-www-form-urlencoded"
 }
@@ -24,6 +23,8 @@ service.interceptors.request.use(config => {
   if (config.method == 'get') {//允许get请求设置请求头
     config.data = true
   }
+  let token = sessionStorage.getItem('token');
+  config.headers.authorization = `Bearer ${token}`;
   return config
 }, error => {
   Promise.reject(error)
@@ -37,8 +38,12 @@ service.interceptors.response.use(response => {
   }
 }, error => {
   console.log('error');
-  console.log(error);
-  console.log(JSON.stringify(error));
+  console.log(error.response);
+  // console.log(JSON.stringify(error));
+  if(error.response.status == 401){
+    sessionStorage.setItem('isLogin',false)
+    location.href = '/';
+  }
   return Promise.reject(error)
 })
 

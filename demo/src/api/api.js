@@ -1,8 +1,17 @@
 import service from './request'
 
-export const getUserInfo = () => {
+export const setUser = (data) => {
     return service({
-        url:'/user/getUserInfo',
-        method:'get'
+        url:'/user/setUser',
+        method:'post',
+        data
+    })
+}
+
+export const getUserInfor = (data) => {
+    return service({
+        url:'/user/getUserInfor',
+        method:'post',
+        data
     })
 }

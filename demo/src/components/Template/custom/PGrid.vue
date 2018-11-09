@@ -12,6 +12,7 @@
 import { Grid, GridItem } from 'vux'
 
 export default {
+    name: "PGrid",
     components:{
         Grid,
         GridItem
