@@ -16,3 +16,19 @@
 localhost:8080/为开发环境
 localhost:3000/为生产环境，需在./demo下运行`npm run build`，并将生成的dist文件夹复制入./service方可运行
 前端API地址配置在@/api/config文件下
+### 参考文献
+- 相关官网链接
+	- https://vux.li/
+	- https://cn.vuejs.org/
+	- https://vuex.vuejs.org/
+	- https://mp.weixin.qq.com/
+	- https://www.npmjs.com/package/express-jwt
+	- https://jwt.io/
+	- https://docs.mongodb.com/
+	- http://expressjs.com/
+	- https://mongoosejs.com/
+	- https://nodejs.org/en/download/
+	- https://www.npmjs.com/package/wechat
+- 相关博客
+	- https://blog.csdn.net/u011652364/article/details/78669041
+	- https://www.cnblogs.com/hvkcode/p/6913033.html
