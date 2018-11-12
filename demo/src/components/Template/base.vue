@@ -24,7 +24,8 @@ import {
     PBottomTab,
     UserInfo,
     PCell,
-    PForm
+    PForm,
+    PSelect
 }from '@/components/Template/custom/index.js'
 
 export default {
@@ -36,12 +37,14 @@ export default {
 
 
 
+
         PGroup,
         PGrid,
         PBottomTab,
         UserInfo,
         PCell,
-        PForm
+        PForm,
+        PSelect
     },
     props:{
         pageConfig:{

@@ -5,7 +5,7 @@ const secret = require('../config/jwt_config');
 const router = express.Router();
 
 
-
+//设置一个账号
 router.post('/setUser', (req, res) => {
     let user = new Stus({
         name: req.body.name,
@@ -26,13 +26,14 @@ router.post('/setUser', (req, res) => {
     })    
 })
 
-router.post('/getUserInfor', (req, res) => {
+//登陆、获取用户信息
+router.post('/login', (req, res) => {
     Stus.findOne({
         name: req.body.name
     }, (err, data) => {
         if(err) throw err;
         if(!data){
-            res.send({code:0,msg:"用户名或密码错误"})
+            res.send({code:0,msg:"密码错误"})
         }else if(req.body.password == data.password){
             let token = jwt.sign({
                 name:req.body.name
@@ -44,7 +45,7 @@ router.post('/getUserInfor', (req, res) => {
                 admin:data.admin
             }})
         }else{
-            res.send({code:0,msg:"用户名或密码错误"})
+            res.send({code:0,msg:"密码错误"})
         }
     })
 })

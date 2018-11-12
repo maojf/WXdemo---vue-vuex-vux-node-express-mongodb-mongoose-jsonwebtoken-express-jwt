@@ -38,28 +38,50 @@ export default {
                                 name: "x-input",
                                 title: "password",
                                 options:{
-                                    title: "设置密码"
+                                    title: "输入密码"
                                 }
                             },
                             {
-                                name: "x-input",
-                                title: "password1",
-                                options:{
-                                    title: "设置密码"
+                                name: "PSelect",
+                                title:"sex",
+                                options: {
+                                    list: [
+                                        {name:"adfssdf",value:"1"},
+                                        {name:"bb",value:"2"},
+                                        {name:"ac",value:"3"},
+                                    ],
+                                    valueType:0
+                                }
+                            },
+                            {
+                                name: "PSelect",
+                                title:"age",
+                                options: {
+                                    list: [
+                                        {name:"adfssdf",value:"1"},
+                                        {name:"bb",value:"2"},
+                                        {name:"ac",value:"3"},
+                                    ],
+                                    valueType:1
                                 }
                             }
                         ],
                         button:[
                             {
-                                api: "aaaa",
+                                api: "/user/login",
                                 list:{
-                                    text: "确定",
+                                    text: "登陆",
                                     type: "primary"
                                 }
                             }
                         ]
                     }
-                }
+                },
+
+                // {
+                //     name: "PSelect",
+                    
+                // }
             ]
         }
     }

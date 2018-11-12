@@ -7,7 +7,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state:{
-        isLogin:false
+        isLogin:false,
+        isSubmit:false
     },
     actions,
     mutations

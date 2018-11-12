@@ -1,6 +1,6 @@
 <template>
-    <form @submit="aaa">
-        <group label-margin-right="2em" id="aaa">
+    <form @submit="submit">
+        <group label-margin-right="2em">
             <component v-for="(item,index) in list" :key="index" 
             :is="item.name"
             v-bind="item.options"
@@ -17,12 +17,14 @@ import {
     XInput,
     XButton
     } from 'vux'
+import PSelect from './PSelect'
 export default {
     name:'PForm',
     components:{
         Group,
         XInput,
-        XButton
+        XButton,
+        PSelect
     },
     props:{
         list:{
@@ -35,7 +37,8 @@ export default {
         }
     },
     methods:{
-        aaa(){
+        submit(e){
+            e.preventDefault();
             let api = this.button[0].api;
             let total = {}
             this.list.forEach(item => {
@@ -43,6 +46,7 @@ export default {
                 let value = this.$refs[key][0].currentValue;
                 total[key] = value;
             });
+            console.log(total)
             console.log(api)
         }
     }
