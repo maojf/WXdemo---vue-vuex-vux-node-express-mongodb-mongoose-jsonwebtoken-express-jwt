@@ -4,13 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-import init from './utils/init'
+import mixins from './utils/mixins'
 
 import '@/style/public.less'
 
 Vue.config.productionTip = false
 
-Vue.use(init)
+Vue.use(mixins)
 
 /* eslint-disable no-new */
 new Vue({

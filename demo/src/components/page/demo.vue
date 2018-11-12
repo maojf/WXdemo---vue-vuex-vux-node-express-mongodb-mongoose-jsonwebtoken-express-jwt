@@ -93,10 +93,25 @@ export default {
                     }
                 },
 
-                // {
-                //     name: "PSelect",
-                    
-                // }
+                {
+                    name: "UserInfo",
+                    options: {
+                        img: require("@/assets/img/user/user.jpg"),
+                        text: "西门吹雪"
+                    }
+                },
+
+                {
+                    name: "PCell",
+                    options: {
+                        list: [
+                            {
+                                title: "账号信息",
+                                "is-link": true
+                            }
+                        ]
+                    }
+                }
             ]
         }
     }
