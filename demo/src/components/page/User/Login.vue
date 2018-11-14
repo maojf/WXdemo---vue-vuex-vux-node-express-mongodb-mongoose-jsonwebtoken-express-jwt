@@ -11,6 +11,32 @@ export default {
     components:{
         Template
     },
+    methods:{
+        func(res){
+            console.log(res)
+            if(res.code == 1){
+                sessionStorage.setItem('token',res.token);
+                sessionStorage.setItem('isLogin',true);
+                this.$router.push({
+                    name: "Msg",
+                    params: {
+                        title: "kkkkk",
+                        description: "bbb",
+                        icon: "success",
+                        buttons:[
+                            {
+                                type: "primary",
+                                text: "确定",
+                                link: "/"
+                            }   
+                        ]
+                    }
+                })
+            }else{
+                this.$vux.toast.text(res.msg, 'middle')
+            }
+        }
+    },
     data(){
         return {
             pageConfig:[
@@ -40,45 +66,6 @@ export default {
                                 options:{
                                     title: "输入密码"
                                 }
-                            },
-                            {
-                                name: "x-input",
-                                title: "password",
-                                options:{
-                                    title: "输入密码"
-                                }
-                            },
-                            {
-                                name: "PSelect",
-                                title:"sex",
-                                options: {
-                                    list: [
-                                        {name:"adfssdf",value:"1"},
-                                        {name:"bb",value:"2"},
-                                        {name:"ac",value:"3"},{name:"adfssdf",value:"1"},
-                                        {name:"bb",value:"2"},
-                                        {name:"ac",value:"3"},{name:"adfssdf",value:"1"},
-                                        {name:"bb",value:"2"},
-                                        {name:"ac",value:"3"},
-                                    ],
-                                    valueType:0,
-                                    title: "性别",
-                                    id:"sex"
-                                }
-                            },
-                            {
-                                name: "PSelect",
-                                title:"age",
-                                options: {
-                                    list: [
-                                        {name:"adfssdf",value:"1"},
-                                        {name:"bb",value:"2"},
-                                        {name:"ac",value:"3"},
-                                    ],
-                                    valueType:1,
-                                    title: "年龄",
-                                    id:"age"
-                                }
                             }
                         ],
                         button:[
@@ -89,14 +76,10 @@ export default {
                                     type: "primary"
                                 }
                             }
-                        ]
+                        ],
+                        func:this.func
                     }
-                },
-
-                // {
-                //     name: "PSelect",
-                    
-                // }
+                }
             ]
         }
     }

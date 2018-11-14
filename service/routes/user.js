@@ -40,10 +40,8 @@ router.post('/login', (req, res) => {
             },secret,{
                 expiresIn:60
             })
-            res.send({code:1,msg:'登陆成功',token,userInfo:{
-                name:data.name,
-                admin:data.admin
-            }})
+            res.cookie('userInfo', data.admin, { maxAge: 900000})
+            res.send({code:1,msg:'登陆成功',token})
         }else{
             res.send({code:0,msg:"密码错误"})
         }

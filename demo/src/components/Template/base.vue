@@ -4,7 +4,7 @@
             <component 
                 :is="item.name"
                 v-bind="item.options"
-                @click.native="item.events?item.events.list.click():''"
+                @click.native="click_handle(item.events)" 
                 >
             </component>
         </div>
@@ -25,7 +25,8 @@ import {
     UserInfo,
     PCell,
     PForm,
-    PSelect
+    PSelect,
+    PMsg
 }from '@/components/Template/custom/index.js'
 
 export default {
@@ -44,7 +45,8 @@ export default {
         UserInfo,
         PCell,
         PForm,
-        PSelect
+        PSelect,
+        PMsg
     },
     props:{
         pageConfig:{
@@ -67,6 +69,11 @@ export default {
         //     })
         //获取登陆状态
         this.$store.commit('getIsLogin',sessionStorage.getItem('isLogin'));
+    },
+    methods:{
+        click_handle(e){
+            e?e.list.click():'';
+        }
     }
 }
 </script>

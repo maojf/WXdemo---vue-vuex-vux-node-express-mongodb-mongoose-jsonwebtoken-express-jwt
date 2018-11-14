@@ -18,6 +18,7 @@ import {
     XButton
     } from 'vux'
 import PSelect from './PSelect'
+import service from '@/api/request'
 export default {
     name:'PForm',
     components:{
@@ -34,6 +35,10 @@ export default {
         button:{
             type:Array,
             default:()=>[]
+        },
+        func:{
+            type:Function,
+            default:()=>{()=>{}}
         }
     },
     methods:{
@@ -46,8 +51,32 @@ export default {
                 let value = this.$refs[key][0].currentValue;
                 total[key] = value;
             });
-            console.log(total)
-            console.log(api)
+            total['name'] = 'Tom';
+            console.log(111)
+            service({
+                url:api,
+                method:'post',
+                data:total
+            }).then(res=>{
+                this.func(res)
+                // sessionStorage.setItem('token',res.token);
+                // sessionStorage.setItem('isLogin',true);
+                // this.$router.push({
+                //     name: "Msg",
+                //     params: {
+                //         title: "kkkkk",
+                //         description: "bbb",
+                //         icon: "success",
+                //         buttons:[
+                //             {
+                //                 type: "primary",
+                //                 text: "确定",
+                //                 link: "/"
+                //             }   
+                //         ]
+                //     }
+                // })
+            })                
         }
     }
 }
