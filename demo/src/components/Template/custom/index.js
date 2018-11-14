@@ -5,6 +5,7 @@ import UserInfo from './UserInfo'
 import PCell from './PCell'
 import PForm from './PForm'
 import PSelect from './PSelect'
+import PMsg from './PMsg'
 export {
     PGroup,
     PGrid,
@@ -12,5 +13,6 @@ export {
     UserInfo,
     PCell,
     PForm,
-    PSelect
+    PSelect,
+    PMsg
 }

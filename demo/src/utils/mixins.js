@@ -12,8 +12,7 @@ export default {
                             target.$refs[value.events.name] = target.$el.children[0].children[key];
                         }
                     })
-                },
-                // 获取token
+                }
             }
         })
     }
